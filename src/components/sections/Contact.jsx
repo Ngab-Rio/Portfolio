@@ -92,7 +92,7 @@ function Contact() {
           </p>
 
           <a
-            href="https://t.me/yourtelegram"
+            href="https://t.me/mamanadifirmansyah"
             className="
               flex items-center justify-center gap-2
 

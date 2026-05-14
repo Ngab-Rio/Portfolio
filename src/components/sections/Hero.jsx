@@ -1,4 +1,5 @@
 import MamanImage from "../../assets/Maman.jpg"
+import CVFile from "../../assets/cv.pdf"
 
 function Hero() {
   return (
@@ -101,7 +102,7 @@ function Hero() {
             
               {/* DOWNLOAD CV */}
               <a
-                href="/cv.pdf"
+                href={CVFile}
                 download
                 className="
                   px-5 py-3

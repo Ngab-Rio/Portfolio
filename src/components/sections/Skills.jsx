@@ -20,8 +20,6 @@ function Skills() {
 
   return (
     <section id="skills" className="relative px-6 mt-32 text-white">
-
-      {/* HEADER */}
       {/* HEADER */}
       <div className="mb-10 max-w-6xl mx-auto">
 
