@@ -6,8 +6,33 @@ import Projects from "./components/sections/Projects"
 import Skills from "./components/sections/Skills"
 import Contact from "./components/sections/Contact"
 import Footer from "./components/sections/Footer"
+import { useState, useEffect } from "react"
+import Loader from "./components/sections/Loader"
+
 
 function App() {
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+
+    const hasVisited = localStorage.getItem("portfolio-loader")
+
+    if (!hasVisited) {
+      setLoading(true)
+    }
+
+  }, [])
+
+  const handleFinishLoading = () => {
+
+    localStorage.setItem("portfolio-loader", "true")
+
+    setLoading(false)
+  }
+
+  if (loading) {
+    return <Loader onFinish={handleFinishLoading} />
+  }
   return (
     <div className="relative min-h-screen bg-zinc-950 text-white overflow-hidden">
       <Cursor />

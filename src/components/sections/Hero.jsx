@@ -1,6 +1,7 @@
 import MamanImage from "../../assets/Maman.jpg"
 import CVFile from "../../assets/cv.pdf"
 
+
 function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center px-6">

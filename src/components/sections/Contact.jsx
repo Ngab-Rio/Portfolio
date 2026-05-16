@@ -1,136 +1,205 @@
-import { Code, Mail, Send, MessageCircle } from "lucide-react"
+import {
+  Mail,
+  MapPin,
+  Code,
+  Terminal,
+  ArrowUpRight,
+  Globe
+} from "lucide-react"
 
 function Contact() {
   return (
-    <section id="contact" className="relative px-6 mt-32 text-white">
+    <section
+      id="contact"
+      className="relative px-6 mt-32 pb-24 text-white overflow-hidden"
+    >
 
-      {/* Background Glow */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-10 w-72 h-72 bg-teal-400/10 blur-3xl rounded-full pointer-events-none" />
+      {/* BACKGROUND GLOW */}
+      <div className="absolute right-0 top-20 w-96 h-96 bg-teal-400/10 blur-3xl rounded-full pointer-events-none" />
 
-      {/* Header */}
-      <div className="mb-10 text-center">
-        <h2 className="text-teal-400 text-xs tracking-[0.3em] mb-3">
+      <div className="max-w-6xl mx-auto">
+
+        {/* TOP LINE */}
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-px bg-teal-400/40" />
+          <div className="w-1.5 h-1.5 bg-teal-400 rotate-45" />
+        </div>
+
+        {/* HEADER */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+
+          {/* LEFT SIDE */}
+          <div>
+
+        <h2 className="text-teal-400 text-xl tracking-[0.3em] mb-3">
           CONTACT
         </h2>
 
-        <h3 className="text-2xl font-semibold text-white">
-          LET’S BUILD SOMETHING
-        </h3>
+            <h3 className="text-4xl md:text-5xl text-white leading-tight max-w-lg">
+              Let’s build systems,
+              infrastructure,
+              and ideas together.
+            </h3>
 
-        <p className="text-zinc-400 text-sm mt-3 max-w-md mx-auto">
-          Open for backend development, DevOps collaboration, and security-related projects.
-        </p>
-      </div>
+            <p className="text-zinc-400 mt-6 leading-relaxed max-w-md">
+              Open for collaboration, backend engineering,
+              infrastructure projects, cybersecurity discussions,
+              and technology research.
+            </p>
 
-      {/* GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {/* STATUS */}
+            <div className="mt-8 flex items-center gap-3">
 
-        {/* LEFT CARD */}
-        <div className="
-          p-6
-          border border-white/10
-          bg-white/5 backdrop-blur-xl
-          hover:border-teal-400/30
-          transition
-        ">
-          <h4 className="text-teal-400 text-sm tracking-[0.2em] mb-4">
-            GET IN TOUCH
-          </h4>
+              <div className="relative flex items-center justify-center">
+                <div className="w-3 h-3 bg-teal-400 rounded-full" />
+                <div className="absolute w-3 h-3 bg-teal-400 rounded-full animate-ping opacity-75" />
+              </div>
 
-          <p className="text-zinc-400 text-sm leading-relaxed">
-            If you have a project, collaboration idea, or just want to connect,
-            feel free to reach out.
-          </p>
+              <p className="text-sm text-teal-400 tracking-[0.2em]">
+                AVAILABLE FOR COLLABORATION
+              </p>
 
-          <div className="mt-6 flex flex-col gap-3">
-
-            {/* Email */}
-            <a
-              href="mailto:muhammadadifirmansyah06@gmail.com"
-              className="
-                flex items-center gap-3
-                text-zinc-300
-                hover:text-teal-400
-                transition
-              "
-            >
-              <Mail size={16} />
-              Email
-            </a>
-
-            {/* GitHub */}
-            <a
-              href="https://github.com/Ngab-Rio"
-              className="
-                flex items-center gap-3
-                text-zinc-300
-                hover:text-teal-400
-                transition
-              "
-            >
-              <Code size={16} />
-              GitHub
-            </a>
+            </div>
 
           </div>
-        </div>
 
-        {/* RIGHT CARD */}
-        <div className="
-          p-6
-          border border-white/10
-          bg-white/5 backdrop-blur-xl
-          hover:border-teal-400/30
-          transition
-        ">
-          <h4 className="text-teal-400 text-sm tracking-[0.2em] mb-4">
-            QUICK MESSAGE
-          </h4>
+          {/* RIGHT SIDE */}
+          <div className="border border-white/10 bg-white/5 backdrop-blur-xl">
 
-          <p className="text-zinc-400 text-sm mb-6">
-            Prefer a direct message?
-          </p>
+            {/* TERMINAL HEADER */}
+            <div className="border-b border-white/10 px-5 py-4 flex items-center gap-2 text-teal-400 text-xs tracking-[0.3em]">
+              <Terminal size={14} />
+              COMMUNICATION PANEL
+            </div>
 
-          <a
-            href="https://t.me/mamanadifirmansyah"
-            className="
-              flex items-center justify-center gap-2
+            {/* CONTACT ITEMS */}
+            <div className="divide-y divide-white/10">
 
-              w-full
-              py-3
+              {/* EMAIL */}
+              <a
+                href="mailto:muhammadadifirmansyah06@gmail.com"
+                className="
+                  flex items-center justify-between
+                  px-5 py-5
+                  hover:bg-white/5
+                  transition group
+                "
+              >
 
-              bg-teal-400
-              text-black
-              font-medium
+                <div className="flex items-center gap-4">
+                  <Mail className="text-teal-400" size={18} />
 
-              hover:bg-teal-300
-              transition
-            "
-          >
-            <MessageCircle size={16} />
-            Telegram
-          </a>
+                  <div>
+                    <p className="text-white text-sm">Email</p>
+                    <p className="text-zinc-400 text-sm">
+                      muhammadadifirmansyah06
+                    </p>
+                  </div>
+                </div>
 
-          <a
-            href="mailto:muhammadadifirmansyah06@gmail.com"
-            className="
-              flex items-center justify-center gap-2
+                <ArrowUpRight
+                  size={18}
+                  className="
+                    text-zinc-500
+                    group-hover:text-teal-400
+                    transition
+                  "
+                />
 
-              w-full
-              mt-3
-              py-3
+              </a>
 
-              border border-white/10
-              text-white
+              {/* GITHUB */}
+              <a
+                href="https://github.com/Ngab-Rio"
+                target="_blank"
+                className="
+                  flex items-center justify-between
+                  px-5 py-5
+                  hover:bg-white/5
+                  transition group
+                "
+              >
 
-              hover:border-teal-400/30
-              hover:text-teal-400
-              transition
-            "
-          >
-            <Send size={16} />
-            Send Email
-          </a>
+                <div className="flex items-center gap-4">
+                  <Code className="text-teal-400" size={18} />
+
+                  <div>
+                    <p className="text-white text-sm">GitHub</p>
+                    <p className="text-zinc-400 text-sm">
+                      github.com/Ngab-Rio
+                    </p>
+                  </div>
+                </div>
+
+                <ArrowUpRight
+                  size={18}
+                  className="
+                    text-zinc-500
+                    group-hover:text-teal-400
+                    transition
+                  "
+                />
+
+              </a>
+              {/* LINKEDIN */}
+              <a
+                href="https://www.linkedin.com/in/maman-adi-firmansyah-b837712b9/"
+                target="_blank"
+                className="
+                  flex items-center justify-between
+                  px-5 py-5
+                  hover:bg-white/5
+                  transition group
+                "
+              >
+
+                <div className="flex items-center gap-4">
+                  <Globe className="text-teal-400" size={18} />
+
+                  <div>
+                    <p className="text-white text-sm">LinkedIn</p>
+                    <p className="text-zinc-400 text-sm">
+                      Maman Adi Firmansyah
+                    </p>
+                  </div>
+                </div>
+
+                <ArrowUpRight
+                  size={18}
+                  className="
+                    text-zinc-500
+                    group-hover:text-teal-400
+                    transition
+                  "
+                />
+
+              </a>
+
+              {/* LOCATION */}
+              <div
+                className="
+                  flex items-center justify-between
+                  px-5 py-5
+                "
+              >
+
+                <div className="flex items-center gap-4">
+                  <MapPin className="text-teal-400" size={18} />
+
+                  <div>
+                    <p className="text-white text-sm">Location</p>
+                    <p className="text-zinc-400 text-sm">
+                      Indonesia
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
       </div>
