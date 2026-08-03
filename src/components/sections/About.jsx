@@ -59,6 +59,11 @@ function About() {
                 place: "UTY Software House",
                 date: "2025 - Present",
               },
+              {
+                title: "Backend Developer Internship",
+                place: "GMEDIA",
+                date: "June 2026 - Present",
+              },
             ].map((item, i) => (
               <div key={i} className="relative">
 
