@@ -62,14 +62,11 @@ function Loader({ onFinish }) {
     <div
       className="
         fixed inset-0 z-[999]
-        bg-black
+        bg-[#111315]
         flex items-center justify-center
         px-6
       "
     >
-
-      {/* Glow */}
-      <div className="absolute w-96 h-96 bg-teal-400/10 blur-3xl rounded-full" />
 
       {/* Terminal */}
       <div
@@ -78,7 +75,7 @@ function Loader({ onFinish }) {
           w-full max-w-3xl
 
           border border-white/10
-          bg-black/80
+          bg-[#191c1b]
           backdrop-blur-xl
 
           overflow-hidden
@@ -101,7 +98,7 @@ function Loader({ onFinish }) {
           <div className="w-3 h-3 rounded-full bg-yellow-400" />
           <div className="w-3 h-3 rounded-full bg-green-400" />
 
-          <p className="ml-4 text-xs tracking-[0.3em] text-teal-400">
+            <p className="ml-4 font-mono text-xs tracking-[0.3em] text-[#e4ff4f]">
             SYSTEM BOOT
           </p>
 
@@ -115,7 +112,7 @@ function Loader({ onFinish }) {
               key={index}
               className="flex items-center gap-2 text-zinc-300"
             >
-              <span className="text-teal-400">{">"}</span>
+              <span className="text-[#e4ff4f]">{">"}</span>
               <span>{line}</span>
             </div>
           ))}
@@ -124,12 +121,12 @@ function Loader({ onFinish }) {
           {lineIndex < lines.length && (
             <div className="flex items-center gap-2 text-zinc-300">
 
-              <span className="text-teal-400">{">"}</span>
+              <span className="text-[#e4ff4f]">{">"}</span>
 
               <span>{currentLine}</span>
 
               {/* Cursor */}
-              <span className="w-2 h-4 bg-teal-400 animate-pulse" />
+              <span className="w-2 h-4 bg-[#e4ff4f] animate-pulse" />
 
             </div>
           )}

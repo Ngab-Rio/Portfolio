@@ -4,6 +4,8 @@ function Cursor() {
   const cursorRef = useRef(null)
 
   useEffect(() => {
+    if (window.matchMedia("(pointer: coarse)").matches) return undefined
+
     const moveCursor = (e) => {
       if (cursorRef.current) {
         cursorRef.current.style.transform = `
@@ -27,13 +29,13 @@ function Cursor() {
         top-0
         left-0
 
-        w-8
-        h-8
+        hidden
+        md:block
+        w-3
+        h-3
 
         rounded-full
-        backdrop-blur
-        border
-        border-teal-400
+        bg-[#e4ff4f]
 
         pointer-events-none
 
@@ -41,7 +43,7 @@ function Cursor() {
 
         will-change-transform
 
-        shadow-[0_0_10px_rgba(45,212,191,0.6),0_0_25px_rgba(45,212,191,0.4)]
+        mix-blend-difference
       "
     />
   )

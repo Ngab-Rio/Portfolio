@@ -1,108 +1,53 @@
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
 
+const links = [
+  ["01", "Work", "#projects"],
+  ["02", "About", "#about"],
+  ["03", "Skills", "#skills"],
+]
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50">
+    <nav className="relative z-50 mx-auto w-full max-w-7xl px-6 py-6 lg:px-10">
+      <div className="flex items-center justify-between border-b border-white/15 pb-5">
+        <a href="#home" className="font-mono text-sm tracking-[0.18em] text-[#e9e6df]">
+          MAF<span className="text-[#e4ff4f]">/</span>2026
+        </a>
 
-{/* ================= DESKTOP ================= */}
-<div className="hidden md:block border-b border-white/10 bg-black/40 backdrop-blur-xl">
-
-  <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-5">
-
-    {/* BRAND */}
-    <div
-      className="text-white text-2xl"
-      style={{ fontFamily: "League Script" }}
-    >
-      Maman.
-    </div>
-
-    {/* MENU */}
-    <div className="flex items-center gap-10 text-sm text-zinc-400">
-      <a href="#home" className="hover:text-teal-400 transition">Home</a>
-      <a href="#about" className="hover:text-teal-400 transition">About</a>
-      <a href="#projects" className="hover:text-teal-400 transition">Projects</a>
-      <a href="#skills" className="hover:text-teal-400 transition">Skills</a>
-    </div>
-
-    {/* CONTACT */}
-    <a
-      href="#contact"
-      className="
-        px-4 py-2
-        border border-teal-400/40
-        text-teal-400 text-sm
-        hover:bg-teal-400/10
-        transition
-      "
-    >
-      Contact
-    </a>
-
-  </div>
-</div>
-
-      {/* ================= MOBILE ================= */}
-      <div className="md:hidden fixed top-4 left-1/2 -translate-x-1/2 w-full px-4">
-
-        <div className="
-          max-w-md mx-auto
-          rounded-3xl
-          bg-white/5 backdrop-blur-xl
-          border border-white/10
-          shadow-lg shadow-black/20
-          overflow-hidden
-        ">
-
-          {/* TOP BAR */}
-          <div className="h-14 px-6 flex items-center justify-between">
-
-            <h1
-              className="text-white text-2xl"
-              style={{ fontFamily: "League Script" }}
-            >
-              Maman.
-            </h1>
-
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-teal-400 transition"
-            >
-              {isOpen ? <X size={22} /> : <Menu size={22} />}
-            </button>
-
-          </div>
-
-          {/* DROPDOWN */}
-          {isOpen && (
-            <div className="px-6 pb-6 flex flex-col gap-4 text-zinc-300">
-
-              <a href="#home" className="hover:text-teal-400">Home</a>
-              <a href="#about" className="hover:text-teal-400">About</a>
-              <a href="#projects" className="hover:text-teal-400">Projects</a>
-              <a href="#skills" className="hover:text-teal-400">Skills</a>
-
-              <a
-                href="#contact"
-                className="
-                  mt-2 text-center
-                  px-4 py-2
-                  border border-teal-400/40
-                  text-teal-400
-                "
-              >
-                Contact
-              </a>
-
-            </div>
-          )}
-
+        <div className="hidden items-center gap-8 md:flex">
+          {links.map(([number, label, href]) => (
+            <a key={label} href={href} className="font-mono text-xs uppercase tracking-[0.16em] text-[#8b8e88] transition-colors hover:text-[#e4ff4f]">
+              <span className="mr-2 text-[#e4ff4f]">{number}</span>{label}
+            </a>
+          ))}
         </div>
+
+        <a href="#contact" className="hidden border border-[#e4ff4f] px-4 py-2 font-mono text-xs uppercase tracking-[0.14em] text-[#e4ff4f] transition-colors hover:bg-[#e4ff4f] hover:text-[#182000] md:block">
+          Start a conversation
+        </a>
+
+        <button type="button" aria-label={isOpen ? "Close navigation" : "Open navigation"} onClick={() => setIsOpen(!isOpen)} className="text-[#e4ff4f] md:hidden">
+          {isOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </div>
 
+      {isOpen && (
+        <div className="border-b border-white/15 py-5 md:hidden">
+          <div className="flex flex-col gap-5">
+            {links.map(([number, label, href]) => (
+              <a key={label} href={href} onClick={() => setIsOpen(false)} className="font-mono text-xs uppercase tracking-[0.16em] text-[#e9e6df]">
+                <span className="mr-3 text-[#e4ff4f]">{number}</span>{label}
+              </a>
+            ))}
+            <a href="#contact" onClick={() => setIsOpen(false)} className="font-mono text-xs uppercase tracking-[0.16em] text-[#e4ff4f]">
+              Contact me <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      )}
     </nav>
   )
 }

@@ -1,138 +1,77 @@
 import UnivImage from "../../assets/uty.png"
 import SchoolImage from "../../assets/smkth.png"
+import { useGsapReveal } from "../ui/useGsapReveal"
+
+const experience = [
+  ["2026 — 26", "Backend Developer Intern", "GMEDIA"],
+  ["2025 — now", "Backend Developer", "UTY Software House"],
+  ["2024 — 25", "Sysadmin", "THPCTF Community"],
+  ["2024 — 25", "Network Engineer Intern", "Telkom Indonesia"],
+]
+
+const education = [
+  ["2025 — now", "Computer Engineering", "Universitas Teknologi Yogyakarta", UnivImage],
+  ["2022 — 25", "Network & Telecommunication Engineering", "SMK Tunas Harapan Pati", SchoolImage],
+]
 
 function About() {
+  const sectionRef = useGsapReveal()
+
   return (
-    <section id="about" className="relative px-6 mt-24 text-white">
-
-      {/* glow */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-20 w-72 h-72 bg-teal-400/10 blur-3xl rounded-full pointer-events-none" />
-
-      {/* ================= ABOUT (FULL WIDTH) ================= */}
-      <div className="max-w-6xl mx-auto mb-14">
-
-        <div className="flex items-center gap-3 mb-3">
-          <div className="w-10 h-px bg-teal-400/40" />
-          <div className="w-1.5 h-1.5 bg-teal-400 rotate-45" />
+    <section ref={sectionRef} id="about" className="mt-32 px-6 text-white">
+      <div className="mx-auto max-w-6xl">
+        <div data-reveal className="grid gap-10 border-t border-white/15 pt-5 lg:grid-cols-[0.55fr_1.45fr]">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-[#e4ff4f]">
+            02 / PROFILE
+          </p>
+          <div className="grid gap-8 md:grid-cols-[1.25fr_0.75fr]">
+            <p className="max-w-2xl text-2xl leading-tight text-[#e9e6df] md:text-4xl">
+              I work across backend systems, infrastructure, and security. I like understanding the whole path from a request to the machine that serves it.
+            </p>
+            <div className="border-l border-[#e4ff4f]/50 pl-5">
+              <p className="font-mono text-xs uppercase tracking-[0.16em] text-[#e4ff4f]">Focus now</p>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+                Building useful systems, learning in public, and growing THPSEC as a space for cybersecurity and engineering practice.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <h2 className="text-teal-400 text-xl tracking-[0.3em] mb-3">
-          PROFILE SUMMARY
-        </h2>
-
-        <p className="text-zinc-300 leading-relaxed max-w-2xl">
-          I’m Maman Adi Firmansyah, an IT enthusiast focused on backend systems,
-          network infrastructure, and Linux administration. I work with MikroTik
-          and Cisco for network implementation, with strong interest in automation
-          and cybersecurity. I am also the Founder of THPSEC, a community focused
-          on cybersecurity and system engineering.
-        </p>
-
-      </div>
-
-      {/* ================= GRID SECTION ================= */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-
-        {/* ================= EXPERIENCE ================= */}
-        <div className="space-y-6">
-
-          <h3 className="text-teal-400 text-xs tracking-[0.3em]">
-            EXPERIENCE
-          </h3>
-
-          <div className="relative pl-6 border-l border-white/10 space-y-6">
-
-            {/* ITEM */}
-            {[
-              {
-                title: "Network Engineer Internship",
-                place: "Telkom Indonesia",
-                date: "Dec 2024 - Feb 2025",
-              },
-              {
-                title: "Sysadmin",
-                place: "THPCTF Community",
-                date: "2024 - 2025",
-              },
-              {
-                title: "Backend Developer",
-                place: "UTY Software House",
-                date: "2025 - Present",
-              },
-              {
-                title: "Backend Developer Internship",
-                place: "GMEDIA",
-                date: "June 2026 - Present",
-              },
-            ].map((item, i) => (
-              <div key={i} className="relative">
-
-                {/* DOT */}
-                <div className="absolute -left-[30px] top-6 w-3 h-3 bg-teal-400 rotate-45" />
-
-                <div className="p-4 border border-white/10 bg-white/5 backdrop-blur-xl hover:border-teal-400/30 transition">
-                  <p className="text-white font-medium">{item.title}</p>
-                  <p className="text-sm text-zinc-400">{item.place}</p>
-                  <p className="text-xs text-zinc-500 mt-1">{item.date}</p>
+        <div className="mt-20 grid gap-16 lg:grid-cols-[1.15fr_0.85fr]">
+          <div data-reveal data-reveal-delay="0.1">
+            <div className="mb-5 flex items-baseline justify-between border-b border-white/15 pb-3">
+              <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[#e4ff4f]">Experience</h2>
+              <span className="font-mono text-[10px] text-zinc-500">04 — 01</span>
+            </div>
+            <div>
+              {experience.map(([date, role, company]) => (
+                <div key={`${role}-${company}`} className="grid gap-2 border-b border-white/10 py-5 sm:grid-cols-[0.55fr_1fr_0.8fr] sm:items-baseline">
+                  <p className="font-mono text-xs text-zinc-500">{date}</p>
+                  <p className="text-[#e9e6df]">{role}</p>
+                  <p className="text-sm text-zinc-400 sm:text-right">{company}</p>
                 </div>
-
-              </div>
-            ))}
-
-          </div>
-        </div>
-
-        {/* ================= EDUCATION ================= */}
-        <div className="space-y-6">
-
-          <h3 className="text-teal-400 text-xs tracking-[0.3em]">
-            EDUCATION
-          </h3>
-
-          <div className="space-y-6">
-
-            {/* CARD 1 */}
-            <div className="relative p-4 border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden hover:border-teal-400/30 transition">
-
-              <div className="relative z-10">
-                <p className="text-white">Universitas Teknologi Yogyakarta</p>
-                <p className="text-sm text-zinc-400">Computer Engineering</p>
-                <p className="text-sm text-zinc-500 italic">2025 - Present</p>
-              </div>
-
-              <img
-                src={UnivImage}
-                alt="edu"
-                className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-24 h-24 object-cover opacity-15 pointer-events-none"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-zinc-900/60" />
+              ))}
             </div>
-
-            {/* CARD 2 */}
-            <div className="relative p-4 border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden hover:border-teal-400/30 transition">
-
-              <div className="relative z-10">
-                <p className="text-white">SMK Tunas Harapan Pati</p>
-                <p className="text-sm text-zinc-400">
-                  Computer Network & Telecommunication Engineering
-                </p>
-                <p className="text-sm text-zinc-500 italic">2022 - 2025</p>
-              </div>
-
-              <img
-                src={SchoolImage}
-                alt="edu"
-                className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-24 h-24 object-cover opacity-15 pointer-events-none"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-zinc-900/60" />
-            </div>
-
           </div>
 
+          <div data-reveal data-reveal-delay="0.18">
+            <div className="mb-5 border-b border-white/15 pb-3">
+              <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[#e4ff4f]">Education</h2>
+            </div>
+            <div className="divide-y divide-white/10">
+              {education.map(([date, program, school, image]) => (
+                <div key={school} className="relative min-h-28 overflow-hidden py-5">
+                  <img src={image} alt="" className="absolute right-0 top-1/2 h-20 w-20 -translate-y-1/2 object-cover opacity-20" />
+                  <div className="relative z-10 max-w-[80%]">
+                    <p className="font-mono text-xs text-zinc-500">{date}</p>
+                    <p className="mt-2 text-[#e9e6df]">{program}</p>
+                    <p className="mt-1 text-sm text-zinc-400">{school}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-
       </div>
     </section>
   )

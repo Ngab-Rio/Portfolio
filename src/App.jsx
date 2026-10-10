@@ -1,27 +1,18 @@
 import Navbar from "./components/layout/Navbar"
 import About from "./components/sections/About"
 import Hero from "./components/sections/Hero"
-import Cursor from "./components/ui/Cursor"
 import Projects from "./components/sections/Projects"
 import Skills from "./components/sections/Skills"
 import Contact from "./components/sections/Contact"
 import Footer from "./components/sections/Footer"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Loader from "./components/sections/Loader"
 
 
 function App() {
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-
-    const hasVisited = localStorage.getItem("portfolio-loader")
-
-    if (!hasVisited) {
-      setLoading(true)
-    }
-
-  }, [])
+  const [loading, setLoading] = useState(() => (
+    !localStorage.getItem("portfolio-loader")
+  ))
 
   const handleFinishLoading = () => {
 
@@ -34,17 +25,13 @@ function App() {
     return <Loader onFinish={handleFinishLoading} />
   }
   return (
-    <div className="relative min-h-screen bg-zinc-950 text-white overflow-hidden">
-      <Cursor />
-      {/* background grid */}
-      <div className="pointer-events-none absolute inset-0 cyber-grid opacity-30" />
-
+    <div className="relative min-h-screen overflow-hidden bg-[#111315] text-[#e9e6df]">
       <Navbar />
 
       <main className="flex flex-col">
         <Hero />
-        <About />
         <Projects />
+        <About />
         <Skills />
         <Contact />
         <Footer />

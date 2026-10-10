@@ -1,92 +1,86 @@
+import { useGsapReveal } from "../ui/useGsapReveal"
+
+const capabilities = [
+  {
+    number: "01",
+    title: "Backend systems",
+    description: "Designing APIs and data flows that are predictable under real use.",
+    items: ["Golang", "Node.js", "Express", "Laravel", "PostgreSQL", "MySQL"],
+  },
+  {
+    number: "02",
+    title: "Infrastructure",
+    description: "Keeping deployments repeatable, observable, and boring in the best way.",
+    items: ["Docker", "Ansible", "GitHub Actions", "Linux administration"],
+  },
+  {
+    number: "03",
+    title: "Security practice",
+    description: "Investigating how systems fail and turning those lessons into better defenses.",
+    items: ["Binary exploitation", "Digital forensics", "Steganography"],
+  },
+  {
+    number: "04",
+    title: "Networks",
+    description: "Building the connective layer between services, devices, and people.",
+    items: ["MikroTik", "Cisco", "Network implementation"],
+  },
+  {
+    number: "05",
+    title: "Embedded systems",
+    description: "Programming and debugging small devices that interact with the physical world.",
+    items: ["Arduino", "ESP32", "C++"],
+  }
+]
+
 function Skills() {
-  const skills = [
-    {
-      title: "Backend",
-      items: ["Golang", "Node.js", "Express", "Laravel", "PostgreSQL", "MySQL"],
-    },
-    {
-      title: "DevOps",
-      items: ["GitHub Actions (CI/CD)", "Docker", "Ansible", "Linux System Administration"],
-    },
-    {
-      title: "CTF",
-      items: ["Binary Exploitation", "Digital Forensic", "Steganography"],
-    },
-    {
-      title: "Networking",
-      items: ["Mikrotik", "Cisco"],
-    },
-  ]
+  const sectionRef = useGsapReveal()
 
   return (
-    <section id="skills" className="relative px-6 mt-32 text-white">
-      {/* HEADER */}
-      <div className="mb-10 max-w-6xl mx-auto">
-
-        <div className="flex items-center gap-3 mb-3">
-          <div className="w-10 h-px bg-teal-400/40" />
-          <div className="w-1.5 h-1.5 bg-teal-400 rotate-45" />
+    <section ref={sectionRef} id="skills" className="mt-32 px-6 text-white">
+      <div className="mx-auto max-w-6xl">
+        <div data-reveal className="mb-12 grid gap-6 border-t border-white/15 pt-5 md:grid-cols-[0.55fr_1fr]">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-[#e4ff4f]">
+            03 / TOOLKIT
+          </p>
+          <div>
+            <h2 className="max-w-2xl text-3xl leading-tight text-[#e9e6df] md:text-5xl">
+              A practical stack for building and operating systems.
+            </h2>
+            <p className="mt-5 max-w-xl leading-relaxed text-zinc-400">
+              I move between application code and the infrastructure that keeps it useful. These are the areas I spend the most time learning and working in.
+            </p>
+          </div>
         </div>
 
-        <h2 className="text-teal-400 text-xl tracking-[0.3em] mb-3">
-          SKILLS
-        </h2>
-
-        <p className="text-zinc-400 max-w-xl">
-            Building and maintaining systems across backend engineering,
-            infrastructure automation, cybersecurity, and network architecture.
-        </p>
-
-      </div>
-
-      {/* GRID PANEL */}
-      <div className="max-w-6xl mx-auto">
-
-        {/* OUTER BORDER */}
-        <div className="grid grid-cols-1 md:grid-cols-4 border border-white/10">
-
-          {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="
-                p-6
-                bg-white/5 backdrop-blur-xl
-                hover:bg-white/10
-                transition
-                border-r border-b border-white/10
-                last:border-r-0
-                md:border-b-0
-              "
+        <div className="border-y border-white/15">
+          {capabilities.map((capability) => (
+            <article
+              key={capability.number}
+              data-reveal
+              data-reveal-delay={Number(capability.number) * 0.06}
+              className="grid gap-6 border-b border-white/10 py-7 last:border-b-0 md:grid-cols-[0.55fr_0.9fr_1.35fr] md:items-start"
             >
-
-              {/* TITLE */}
-              <h3 className="text-teal-400 text-sm tracking-[0.3em] mb-4">
-                {skill.title.toUpperCase()}
-              </h3>
-
-              {/* ITEMS */}
-              <div className="flex flex-wrap gap-2">
-                {skill.items.map((item, i) => (
-                  <span
-                    key={i}
-                    className="
-                      text-xs px-2 py-1
-                      border border-white/10
-                      text-zinc-300
-                      bg-white/5
-                    "
-                  >
-                    {item}
-                  </span>
-                ))}
+              <p className="font-mono text-xs tracking-[0.2em] text-[#e4ff4f]">
+                {capability.number}
+              </p>
+              <h3 className="text-xl text-[#e9e6df]">{capability.title}</h3>
+              <div className="grid gap-5 sm:grid-cols-[1fr_auto] sm:items-start">
+                <p className="max-w-sm text-sm leading-relaxed text-zinc-400">
+                  {capability.description}
+                </p>
+                <div className="flex max-w-xs flex-wrap justify-start gap-2 sm:justify-end">
+                  {capability.items.map((item) => (
+                    <span key={item} className="border border-white/15 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-zinc-300">
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
-
-            </div>
+            </article>
           ))}
-
         </div>
       </div>
-
     </section>
   )
 }

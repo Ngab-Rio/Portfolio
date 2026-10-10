@@ -1,126 +1,45 @@
+import { ArrowDownRight, ArrowUpRight } from "lucide-react"
 import MamanImage from "../../assets/Maman.jpg"
 import CVFile from "../../assets/cv.pdf"
 
-
 function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center px-6">
+    <section id="home" className="mx-auto grid min-h-[calc(100vh-105px)] w-full max-w-7xl items-center gap-12 px-6 pb-20 pt-12 lg:grid-cols-[1.15fr_0.85fr] lg:px-10">
+      <div className="order-1 lg:order-1">
+        <p className="mb-8 font-mono text-xs uppercase tracking-[0.2em] text-[#e4ff4f]">
+          Backend engineer / infrastructure builder
+        </p>
 
-      {/* background glow */}
-      <div className="absolute top-40 left-1/2 -translate-x-1/2 w-72 h-72 bg-teal-400/10 blur-3xl rounded-full pointer-events-none" />
+        <h1 className="max-w-4xl text-[clamp(3.6rem,8vw,8.5rem)] font-semibold leading-[0.88] tracking-[-0.065em] text-[#e9e6df]">
+          <span className="block">Systems that stay</span>
+          <span className="block text-[#e4ff4f]">useful.</span>
+        </h1>
 
-      {/* CONTAINER (biar tidak mepet layar) */}
-      <div className="mt-20 w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
-
-        {/* LEFT: IMAGE */}
-        <div className="flex justify-center md:justify-start mt">
-
-          <div className="relative group w-72 h-80">
-
-            {/* glow */}
-            <div className="absolute -inset-6 bg-teal-400/20 blur-3xl opacity-70 scale-110" />
-
-            {/* offset border */}
-            <div className="absolute top-3 left-3 w-full h-full border border-teal-400/60" />
-
-            {/* frame */}
-            <div className="
-              relative w-72 h-80 overflow-hidden
-              border border-white/20 bg-zinc-900
-              transition duration-300
-              group-hover:-translate-y-1
-              group-hover:shadow-[0_0_60px_rgba(45,212,191,0.25)]
-            ">
-              <img
-                src={MamanImage}
-                alt="Maman"
-                className="
-                  w-full h-full object-cover grayscale
-                  transition duration-300
-                  group-hover:scale-105 group-hover:grayscale-0
-                "
-              />
-            </div>
-
-          </div>
-        </div>
-
-        {/* RIGHT: TEXT */}
-        <div className="flex flex-col justify-center">
-
-          {/* ROLE */}
-          <div className="inline-flex items-center w-fit px-4 py-2 mb-6 rounded-full bg-white/5 backdrop-blur-xl border border-white/10">
-            <p className="text-teal-400 text-xs tracking-[0.3em] font-medium">
-              BACKEND • DEVOPS • SECURITY
-            </p>
-          </div>
-
-          {/* NAME */}
-          <h1
-            className="text-white text-5xl leading-none"
-            style={{ fontFamily: "Whisper" }}
-          >
-            Maman Adi
-          </h1>
-
-          <h1
-            className="text-white text-5xl leading-none"
-            style={{ fontFamily: "Whisper" }}
-          >
-            Firmansyah
-          </h1>
-
-          {/* LINE DECOR */}
-          <div className="mt-3 flex items-center gap-2">
-            <div className="h-[1px] w-80 bg-teal-400/30" />
-            <div className="w-2.5 h-2.5 rotate-45 border-r border-b border-teal-400" />
-          </div>
-
-          {/* DESCRIPTION */}
-          <p className="text-zinc-400 mt-6 leading-relaxed text-sm max-w-md">
-            Building scalable APIs, managing Linux server infrastructure,
-            and developing modern backend systems with a passion for cyber
-            security and automation.
+        <div className="mt-10 grid max-w-2xl gap-8 border-t border-white/15 pt-5 sm:grid-cols-[1fr_auto] sm:items-end">
+          <p className="max-w-md text-base leading-relaxed text-[#a8aaa3]">
+            I build reliable backend services and the infrastructure around them. My work sits between APIs, Linux, networks, and security.
           </p>
 
-          <div className="flex items-center gap-4 mt-8">
-
-              {/* CONTACT (optional kalau belum ada) */}
-              <a
-                href="#contact"
-                className="
-                  px-5 py-3
-                  rounded-xl
-                  bg-teal-400
-                  text-black
-                  font-medium
-                  hover:bg-teal-300
-                  transition
-                "
-              >
-                Contact Me
-              </a>
-            
-              {/* DOWNLOAD CV */}
-              <a
-                href={CVFile}
-                download
-                className="
-                  px-5 py-3
-                  rounded-xl
-                  border border-white/10
-                  text-white
-                  hover:border-teal-400/40
-                  hover:text-teal-400
-                  transition
-                "
-              >
-                Download CV
-              </a>
-            
-            </div>
+          <div className="flex gap-3">
+            <a href="#projects" className="inline-flex items-center gap-2 bg-[#e4ff4f] px-4 py-3 text-sm font-medium text-[#182000] transition-transform hover:-translate-y-1">
+              See selected work <ArrowDownRight size={16} />
+            </a>
+            <a href={CVFile} download aria-label="Download CV" className="inline-flex h-12 w-12 items-center justify-center border border-white/20 text-[#e9e6df] transition-colors hover:border-[#e4ff4f] hover:text-[#e4ff4f]">
+              <ArrowUpRight size={18} />
+            </a>
+          </div>
         </div>
+      </div>
 
+      <div className="relative order-2 mx-auto w-full max-w-sm lg:order-2 lg:justify-self-end">
+        <div className="absolute -right-4 -top-4 h-full w-full border border-[#e4ff4f]/50" />
+        <div className="relative aspect-[4/5] overflow-hidden bg-[#292d2a]">
+          <img src={MamanImage} alt="Maman Adi Firmansyah" className="h-full w-full object-cover grayscale transition duration-700 hover:grayscale-0" />
+        </div>
+        <p className="mt-4 flex justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-[#8b8e88]">
+          <span>Yogyakarta, ID</span>
+          <span>01 / 05</span>
+        </p>
       </div>
     </section>
   )
