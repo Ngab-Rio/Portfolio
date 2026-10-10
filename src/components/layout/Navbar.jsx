@@ -13,8 +13,9 @@ function Navbar() {
   return (
     <nav className="relative z-50 mx-auto w-full max-w-7xl px-6 py-6 lg:px-10">
       <div className="flex items-center justify-between border-b border-white/15 pb-5">
-        <a href="#home" className="font-mono text-sm tracking-[0.18em] text-[#e9e6df]">
-          MAF<span className="text-[#e4ff4f]">/</span>2026
+        <a href="#home" className="flex items-center gap-3 font-mono text-sm tracking-[0.18em] text-[#e9e6df]">
+          <img src="/logo.svg" alt="MAF" className="h-7 w-7" />
+          <span>MAF<span className="text-[#e4ff4f]">/</span>2026</span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">MAF monogram</title>
+  <desc id="desc">Geometric monogram for Maman Adi Firmansyah</desc>
+  <rect width="64" height="64" fill="#111315"/>
+  <path d="M10 48V16h8l14 17V16h8v32h-8L18 31v17z" fill="#e9e6df"/>
+  <path d="M44 48 52 16h8l-1.5 6L66 48h-8l-2-9h-8l-2 9zm5.5-15h4.5l-2.2-10z" fill="#e4ff4f"/>
+  <path d="M8 54h48" stroke="#e4ff4f" stroke-width="2"/>
+</svg>
